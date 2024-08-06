@@ -25,7 +25,8 @@ or, with leaf,
 (leaf flycheck-docker-build-checks
   :el-get (flycheck-docker-build-checks
            :url "https://github.com/yonta/flycheck-docker-build-checks.git")
-  :hook ((dockerfile-mode dockerfile-ts-mode) . flycheck-docker-build-checks-setup))
+  :hook ((dockerfile-mode-hook dockerfile-ts-mode-hook)
+         . flycheck-docker-build-checks-setup))
 ```
 
 ### Use with flycheck-hadolint
