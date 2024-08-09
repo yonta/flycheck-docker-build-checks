@@ -26,7 +26,7 @@ or, with leaf,
 (leaf flycheck-docker-build-checks
   :el-get (flycheck-docker-build-checks
            :url "https://github.com/yonta/flycheck-docker-build-checks.git")
-  :hook (dockerfile-ts-mode-hook . flycheck-docker-build-checks-setup))
+  :init (flycheck-docker-build-checks-setup))
 ```
 
 ### Use with dockerfile-hadolint
@@ -51,11 +51,11 @@ You can use dockerfile-hadolint and flycheck-docker-build-checks together, like 
   :defun flycheck-docker-build-checks-setup
   :el-get (flycheck-docker-build-checks
            :url "https://github.com/yonta/flycheck-docker-build-checks.git")
+  :init (flycheck-docker-build-checks-setup)
   :hook
   (dockerfile-ts-mode-hook
    . (lambda ()
        (setq my/flycheck-next-local-cache
              '((docker-build-checks
-                . ((next-checkers . (dockerfile-hadolint))))))
-       (flycheck-docker-build-checks-setup))))
+                . ((next-checkers . (dockerfile-hadolint)))))))))
 ```
