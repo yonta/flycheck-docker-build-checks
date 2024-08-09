@@ -16,6 +16,7 @@ Flycheck extension for Docker Build Checks
 
 ```emacs-lisp
 (add-hook 'dockerfile-mode #'flycheck-docker-build-checks-setup)
+;; or
 (add-hook 'dockerfile-ts-mode #'flycheck-docker-build-checks-setup))
 ```
 
@@ -25,8 +26,7 @@ or, with leaf,
 (leaf flycheck-docker-build-checks
   :el-get (flycheck-docker-build-checks
            :url "https://github.com/yonta/flycheck-docker-build-checks.git")
-  :hook ((dockerfile-mode-hook dockerfile-ts-mode-hook)
-         . flycheck-docker-build-checks-setup))
+  :hook (dockerfile-ts-mode-hook . flycheck-docker-build-checks-setup))
 ```
 
 ### Use with flycheck-hadolint
